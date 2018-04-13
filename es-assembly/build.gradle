@@ -1,1 +1,52 @@
 apply plugin: 'java'
+apply plugin: 'idea'
+// This is the class that starts your application
+
+def mainClassName = "com.kylin.assembly.es.HelloEs"
+/*jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}*/
+
+ext {
+    elasticsearch_verison = '5.4.1'
+    profile = System.getProperty("env") ?: "dev"
+    println "[current profile]:" + profile
+}
+
+dependencies {
+    compile project(":assembly-common")
+
+    compile("org.elasticsearch:elasticsearch:${elasticsearch_verison}")
+    compile("org.elasticsearch.client:transport:${elasticsearch_verison}")
+    compile 'com.alibaba:fastjson:1.2.33'
+    compile 'com.alibaba:druid:1.1.5'
+    compile 'mysql:mysql-connector-java:5.1.44'
+
+
+}
+
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenCentral()
+    }
+}
+
+/*
+jar {
+    manifest {
+        attributes(
+                "Manifest-Version": 1.0,
+                "Main-Class": "$mainClassName")
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    into('assets') {
+        from 'assets'
+    }
+}*/
