@@ -24,7 +24,7 @@ dependencies {
 
     compile("org.elasticsearch:elasticsearch:${elasticsearch_verison}")
     compile("org.elasticsearch.client:transport:${elasticsearch_verison}")
-    compile 'com.alibaba:fastjson:1.2.33'
+
     compile 'com.alibaba:druid:1.1.5'
     compile 'mysql:mysql-connector-java:5.1.44'
 
