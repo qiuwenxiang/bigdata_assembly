@@ -1,4 +1,4 @@
 rootProject.name = 'bigdata_assembly'
 include "assembly-common","es-assembly","flume-assembly","hive-assembly",
         "kafka-assembly","kylin-assembly","mysql-assembly","netty-assembly",
-        "redis-assembly","spark-streaming-assembly","spark-sql-assembly"
+        "redis-assembly","spark-streaming-assembly","spark-sql-assembly","zookeeper-assembly"
