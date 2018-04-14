@@ -1,1 +1,14 @@
-# bigdata_assembly
+### 大数据开发中常用组件封装
+- es
+  - java-es
+  - spark-es
+  - spring-es
+  - hive-es
+- redis
+  - spring-redis
+  - java-redis
+- kafka
+- netty
+- spark
+  - spark-sql
+  - spark-streaming
