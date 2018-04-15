@@ -28,4 +28,9 @@
   - spark-streaming
 - flume 
   - flume-ng
-    - 自定义sink  
+    - 自定义sink 
+- hbase
+  - 基于rowkey的精确查询，以及小段扫描查询，即由LSM-Tree(Log-Structured Merge-Tree) + HTable(region分区) + Cache决定     
+- hadoop
+    - hdfs
+    - hive
