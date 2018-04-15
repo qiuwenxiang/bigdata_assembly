@@ -1,0 +1,3 @@
+dependencies{
+    compile 'org.redisson:redisson:3.6.5'
+}

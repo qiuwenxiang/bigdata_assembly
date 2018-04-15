@@ -11,6 +11,8 @@
 - redis
   - spring-redis
   - java-redis
+    - 单机分布式锁 jedis.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
+    - 多节点分布式锁 redisson  https://github.com/redisson/redisson
 - kafka
 - netty
 - spark
