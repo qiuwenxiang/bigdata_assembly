@@ -21,41 +21,45 @@ public class ZkClientApi
     public static ZkClient zc;
 
     static {
-        zc = new ZkClient(GlobalParamValue.get(ZkConstant.ZOOKEEPER_CONNECT),10000,10000, new SerializableSerializer());
+        zc = new ZkClient(GlobalParamValue.get(ZkConstant.ZOOKEEPER_CONNECT),10000,10000);
         LOGGER.info("create client[{}] success :",GlobalParamValue.get(ZkConstant.ZOOKEEPER_CONNECT));
     }
 
-    public static void main(String[] args)
-    {
-        //初始化参数，ip端口，回话过期的时间，链接超时的时间,序列化器
-        zc = new ZkClient(GlobalParamValue.get(ZkConstant.ZOOKEEPER_CONNECT),10000,10000, new SerializableSerializer());
-        System.out.println("connection ok");
-//        createNode();
-    }
-
     /**
-     * 创建节点，路径，节点内容，持久节点
+     * 创建node节点，默认为不随client断开而消失
+     * @param path
+     * @param obj
      * @return
      */
     public static String createNode(String path,Object obj)
     {
         //创建节点，路径，节点内容，持久节点
-        return zc.create(path, obj, CreateMode.PERSISTENT);
+        return createNode(path, obj, CreateMode.PERSISTENT);
+    }
+    /**
+     * 创建节点，路径，节点内容，持久节点
+     * @param mode PERSISTENT_SEQUENTIAL  会在path后追加一个10位数字
+     * @return
+     */
+    public static String createNode(String path,Object obj,CreateMode mode)
+    {
+        //创建节点，路径，节点内容，持久节点
+        return zc.create(path, obj, mode);
     }
 
     /**
      * 获取节点信息和状态信息
      * @param path
      */
-    public static void getDAta(String path)
+    public static Object getData(String path)
     {
         //返回的是user对象，获取节点内容
         User user = zc.readData(path);
 
         //获取状态信息
         Stat stat = new Stat();
-        zc.readData(path, stat);
-        System.out.println(stat);
+        Object obj = zc.readData(path, stat);
+        return obj;
     }
 
     /**

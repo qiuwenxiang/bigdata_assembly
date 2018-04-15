@@ -1,6 +1,9 @@
 import com.kylin.assembly.common.po.User;
 import org.I0Itec.zkclient.ZkClient;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.WatchedEvent;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import zkclient.ZkClientApi;
 
@@ -12,7 +15,15 @@ import zkclient.ZkClientApi;
 public class ZkTest {
 
     private static final String PATH="/hadoop";
+    private static final String PATH1="/hadoop1";
+    private static final String PATH2="/hadoop2";
+    private static final String PATH3="/test";
 
+
+    @Before
+    public void init(){
+       // testDeleteZNode();
+    }
 
     @Test
     public void testCreatClient(){
@@ -20,9 +31,34 @@ public class ZkTest {
         Assert.assertNotNull(zc);
     }
 
+
+    @Test
+    public void testDeleteZNode(){
+         ZkClientApi.delPath(PATH);
+         ZkClientApi.delPath(PATH1);
+         ZkClientApi.delPath(PATH2);
+         ZkClientApi.delPath(PATH3);
+    }
+
     @Test
     public void testCreatClient1(){
         String node = ZkClientApi.createNode(PATH,new User(1,"zhangsan"));
+        String node1 = ZkClientApi.createNode(PATH1,new User(1,"zhangsan"), CreateMode.PERSISTENT_SEQUENTIAL);
+        String node2 = ZkClientApi.createNode(PATH2,new User(1,"zhangsan"), CreateMode.EPHEMERAL);
+        String node3 = ZkClientApi.createNode(PATH3,new User(1,"zhangsan"), CreateMode.EPHEMERAL_SEQUENTIAL);
         Assert.assertNotNull(node);
+        Assert.assertNotNull(node1);
+    }
+
+    @Test
+    public void  testGetData(){
+        Object data = ZkClientApi.getData(PATH);
+        System.out.println(data);
+    }
+
+    @Test
+    public void  testGetDataWatch(){
+      /*  Object data = ZkClientApi.getData(PATH,new WatchedEvent());
+        System.out.println(data);*/
     }
 }

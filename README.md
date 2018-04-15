@@ -1,6 +1,8 @@
 ### 大数据开发中常用组件封装
 - zookeeper
-    - 为分布式系统提供一致性协调
+    - 名字服务,配置管理,组员管理
+    - 互斥锁，读写锁, 屏障
+    - http://www.aboutyun.com/thread-17636-1-1.html
 - es
   - java-es
   - spark-es
