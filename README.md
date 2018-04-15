@@ -3,6 +3,8 @@
     - 名字服务,配置管理,组员管理
     - 互斥锁，读写锁, 屏障
     - http://www.aboutyun.com/thread-17636-1-1.html
+- duddo
+    - 服务提供方Provider ，消费方Consumer，在Registry上注册服务，当本地方法一样调用，    
 - es
   - java-es
   - spark-es
