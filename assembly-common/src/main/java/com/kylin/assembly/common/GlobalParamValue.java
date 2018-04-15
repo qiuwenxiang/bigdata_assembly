@@ -36,4 +36,8 @@ public class GlobalParamValue {
             LOGGER.error(e.getMessage());
         }
     }
+
+    public static String get(String fileName){
+        return paramMap.get(fileName);
+    }
 }

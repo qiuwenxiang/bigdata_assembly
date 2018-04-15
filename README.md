@@ -1,4 +1,6 @@
 ### 大数据开发中常用组件封装
+- zookeeper
+    - 为分布式系统提供一致性协调
 - es
   - java-es
   - spark-es

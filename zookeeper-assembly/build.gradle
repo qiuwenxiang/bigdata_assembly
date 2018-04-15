@@ -1,3 +1,8 @@
 dependencies{
+    compile project(":assembly-common")
+    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
+
     compile 'org.apache.zookeeper:zookeeper:3.4.8'
+    compile 'org.apache.curator:curator-framework:2.10.0'
+    compile 'org.apache.curator:curator-recipes:2.10.0'
 }

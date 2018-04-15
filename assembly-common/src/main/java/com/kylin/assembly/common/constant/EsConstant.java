@@ -1,4 +1,4 @@
-package com.kylin.assembly.es.constant;
+package com.kylin.assembly.common.constant;
 
 /**
  * @description: 常量存放
