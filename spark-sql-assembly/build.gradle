@@ -4,6 +4,12 @@ dependencies {
     compile "org.scala-lang:scala-library:2.11.7"
     compile "org.scala-lang:scala-compiler:2.11.7"
     compile "org.scala-lang:scala-reflect:2.11.7"
+
+    compile "org.apache.spark:spark-yarn_2.11:2.2.1"
+    compile "org.apache.spark:spark-core_2.11:2.2.1"
+    compile "org.apache.spark:spark-hive_2.11:2.2.1"
+    compile "org.apache.spark:spark-sql_2.11:2.2.1"
+    compile "org.mongodb.mongo-hadoop:mongo-hadoop-spark:1.5.2"
 }
 //这里是关键（把java与scala的源代码目录全映射到scala上,
 // 这样gradle compileScala时就能同时编译java与scala的源代码）
