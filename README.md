@@ -35,9 +35,13 @@
     - 自定义sink 
     - 自定义source
     - 自定义filter
-- hbase
-  - 基于rowkey的精确查询，以及小段扫描查询，即由LSM-Tree(Log-Structured Merge-Tree) + HTable(region分区) + Cache决定     
 - hadoop
     - hdfs
     - hive
-    
+    - hbase
+      - 基于rowkey的精确查询，以及小段扫描查询，即由LSM-Tree(Log-Structured Merge-Tree) + HTable(region分区) + Cache决定     
+- sqoop
+    - hive 与 mysql、postgresql 导数
+    - 常被运用于拼接指令,提交shell执行
+- strom
+    - blot sport nibus 实时
