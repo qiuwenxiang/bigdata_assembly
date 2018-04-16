@@ -1,5 +1,9 @@
 dependencies {
 
+    compile project(":assembly-common")
+
     compile 'com.alibaba:dubbo:2.5.3'
+    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
+
 
 }
