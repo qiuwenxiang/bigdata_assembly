@@ -1,0 +1,6 @@
+dependencies{
+    compile 'com.alibaba:druid:1.1.5'
+    compile 'mysql:mysql-connector-java:5.1.44'
+    compile project(":assembly-common")
+
+}

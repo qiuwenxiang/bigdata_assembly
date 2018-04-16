@@ -10,8 +10,12 @@
     - 判断index，type,document是否存在,根据id查询，根据id插入或更新，分页查询scroll
   - spark-es
   - spring-es
+    - 配置-注入-使用
   - hive-es
     - udf建立外部表
+- mysql
+    - druid 连接池
+    - canal 模拟主从复制，同步 https://github.com/sasou/syncClient
 - redis
   - spring-redis
   - java-redis
@@ -29,8 +33,11 @@
 - flume 
   - flume-ng
     - 自定义sink 
+    - 自定义source
+    - 自定义filter
 - hbase
   - 基于rowkey的精确查询，以及小段扫描查询，即由LSM-Tree(Log-Structured Merge-Tree) + HTable(region分区) + Cache决定     
 - hadoop
     - hdfs
     - hive
+    

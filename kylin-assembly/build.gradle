@@ -1,0 +1,3 @@
+dependencies{
+    compile 'org.apache.kylin:kylin-jdbc:1.5.3'
+}

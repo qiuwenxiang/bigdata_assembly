@@ -25,8 +25,12 @@ dependencies {
     compile("org.elasticsearch:elasticsearch:${elasticsearch_verison}")
     compile("org.elasticsearch.client:transport:${elasticsearch_verison}")
 
-    compile 'com.alibaba:druid:1.1.5'
-    compile 'mysql:mysql-connector-java:5.1.44'
+
+    compile("org.elasticsearch:elasticsearch-hadoop:2.3.2")
+    compile("org.apache.hive:hive-cli:2.0.0")
+    compile("org.apache.hadoop:hadoop-common:2.6.4")
+
+
 
 
 }
