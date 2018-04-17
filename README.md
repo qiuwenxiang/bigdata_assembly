@@ -30,6 +30,7 @@
 - spark
   - spark-sql
   - spark-streaming
+    - 基于kafka direct方式，保存offset进zk,获取leader,更新，实现 恰好一次
 - flume 
   - flume-ng
     - 自定义sink 
@@ -45,3 +46,11 @@
     - 常被运用于拼接指令,提交shell执行
 - strom
     - blot sport nibus 实时
+    - kafkaspout.nextTuple
+    - 异或运算  
+         - 与（&）	0 & 0 = 0	1 & 0 = 0	0 & 1 = 0	1 & 1 = 1
+         - 或（|）	0 | 0 = 0	1 | 0 = 1	0 | 1 = 1	1 | 1 = 1
+         - 异或（^）	0 ^ 0 = 0	1 ^ 0 = 1	0 ^ 1 = 1	1 ^ 1 = 0
+            - 异或自己＝把自己置0
+            - 
+
