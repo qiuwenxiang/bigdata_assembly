@@ -96,4 +96,13 @@ public class ZkClientApi
         //删除有子节点的路劲
         boolean y = zc.deleteRecursive(path);
     }
+
+    /**
+     * 查看目录下是否有节点
+     * @param path
+     * @return
+     */
+    public static int countChildren(String path){
+        return zc.countChildren(path);
+    }
 }

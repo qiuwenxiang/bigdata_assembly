@@ -52,7 +52,7 @@ public class ZkTest {
 
     @Test
     public void  testGetData(){
-        Object data = ZkClientApi.getData(PATH);
+        Object data = ZkClientApi.getData("/consumers/1/offsets/test/1");
         System.out.println(data);
     }
 

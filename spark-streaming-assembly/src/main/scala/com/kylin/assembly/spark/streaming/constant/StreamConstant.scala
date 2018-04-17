@@ -11,6 +11,8 @@ object StreamConstant {
   val ZOOKEEPER_CONNECT="zookeeper.connect"
   val KAFKA_TOPICS="kafka.topics"
   val KAFKA_INTERVAL="kafka.interval"
+  val KAFKA_GROUP="kafka.group"
+  val APP_NAME="app.name"
 
 
 
