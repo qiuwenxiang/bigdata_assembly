@@ -1,3 +1,4 @@
+/*
 package com.kylin.assembly.spark.sql2;
 
 
@@ -14,9 +15,11 @@ import java.util.Map;
 import static org.apache.spark.sql.functions.col;
 import static org.apache.spark.sql.functions.current_date;
 
+*/
 /**
  * 资金额度异常比对
- */
+ *//*
+
 public class FinancialContrastSpark
 {
     public static String user = "root";
@@ -45,10 +48,12 @@ public class FinancialContrastSpark
     }
 
 
-    /**
+    */
+/**
      * 项目受益异常
      * @param spark
-     */
+     *//*
+
     private static void projectErr(SparkSession spark)
     {
         Map<String, String> itemParam = new HashMap<String, String>();
@@ -102,9 +107,11 @@ public class FinancialContrastSpark
 
     }
 
-    /**
+    */
+/**
      * 资金发放总额异常
-     */
+     *//*
+
     private static void countBiuErr(SparkSession spark)
     {
         //总额
@@ -169,10 +176,12 @@ public class FinancialContrastSpark
     }
 
 
-    /**
+    */
+/**
      * 省资金拨付县总额异常
      * @param spark
-     */
+     *//*
+
     private static void shengToXian(SparkSession spark)
     {
         Map<String, String> xzqhMap = new HashMap<String, String>();
@@ -224,11 +233,13 @@ public class FinancialContrastSpark
     }
 
 
-    /**
+    */
+/**
      * 市资金拨付县总额异常
      *
      * @param spark
-     */
+     *//*
+
     private static void cityToXian(SparkSession spark)
     {
         Map<String, String> xzqhMap = new HashMap<String, String>();
@@ -281,9 +292,11 @@ public class FinancialContrastSpark
 
     }
 
-    /**
+    */
+/**
      * 省发放到市资金异常对比
-     */
+     *//*
+
     private static void provinceToCity(SparkSession spark)
     {
         //来源表
@@ -324,3 +337,4 @@ public class FinancialContrastSpark
     }
 
 }
+*/
