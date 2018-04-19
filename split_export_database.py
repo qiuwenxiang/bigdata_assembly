@@ -67,7 +67,7 @@ def create_export_script(database, result):
     # 关闭打开的文件
     fo.close()
 
-def create_import_script(database, result):
+def create_import_script(result, *args):
     """
     生成的文件  set ff =unix ; chmod u+x export.sh
     :param database:
@@ -75,7 +75,7 @@ def create_import_script(database, result):
     :return:
     """
     fo = open("import.sh", "w")
-    pre = 'mysql -uroot -p123456 << EOF\n use autoHome;\n set names utf8;\n'
+    pre = 'mysql -uroot -p123456 << EOF\n use autoHome;\n set names utf8;\n' % ()
     for i in range(len(result)):
         pre += 'source /opt/part_%s.sql;\n' % i
     pre += 'EOF\n'
@@ -95,4 +95,5 @@ if __name__ == '__main__':
     result.append([data[0]])
     fun(data[0], data[1:], data[1], [data[1]])
     create_export_script(database, result)
-    create_import_script(database, result)
+    target_args = ('root', '123456', database)
+    create_import_script(result, *target_args)
