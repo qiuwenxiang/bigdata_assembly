@@ -6,6 +6,9 @@
 - duddo
     - 服务提供方Provider ，消费方Consumer，在Registry上注册服务，当本地方法一样调用，    
 - es
+  - 倒排索引 （反向索引）
+    - 正向索引，从id找内容，此id下，某关键词出现X次等等
+    - 反向索引，从内容找id, 分词后 key为关键词，value为所出现的文档
   - java-es
     - 判断index，type,document是否存在,根据id查询，根据id插入或更新，分页查询scroll
   - spark-es

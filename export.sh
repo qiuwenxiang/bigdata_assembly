@@ -1,0 +1,4 @@
+mysqldump -u leopaard -pqwe!@# autoHome dealer_news_price > part_0.sql
+mysqldump -u leopaard -pqwe!@# autoHome mouth_detail failure_rate series_chezhi spider_config competitor datasource_relation spider_run_log dealer_kpi_plan dictionarytype filter_keyword_reg keywords chezhi_series car_config dictionary bdbk_city_level dim_city_level brand mouth_brief c_dealer_extend series mouth_brief_impress clh_car_code mouth_vss c_dealer_base area mouth_problems mouth_quality_copy mouth_quality chezhi_complaint mouth_year_quality car mall_defaddress dealer_promotion_info dealer_map_info dealer_seller dealer_series mouth_detail_copy car_extend_copy dealer_news > part_1.sql
+mysqldump -u leopaard -pqwe!@# autoHome dealer_price_info > part_2.sql
+mysqldump -u leopaard -pqwe!@# autoHome car_extend > part_3.sql
