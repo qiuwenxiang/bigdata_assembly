@@ -67,24 +67,43 @@ def create_export_script(database, result):
     # 关闭打开的文件
     fo.close()
 
-def create_import_script(result, *args):
+def create_import_script(*args):
     """
     生成的文件  set ff =unix ; chmod u+x export.sh
-    :param database:
+    传入要导入的库，默认/opt目录
     :param result:
     :return:
     """
     fo = open("import.sh", "w")
-    pre = 'mysql -uroot -p123456 << EOF\n use autoHome;\n set names utf8;\n' % ()
-    for i in range(len(result)):
-        pre += 'source /opt/part_%s.sql;\n' % i
-    pre += 'EOF\n'
-    pre += 'echo "import end"'
+    pre = 'mysql -u %s -p%s << EOF\n use %s;\n set names utf8;\n' % (args[0], args[1], args[2])
+    pre += 'source $1\n'
+    pre += 'echo "import $1 end'
     fo.write(pre)
 
     # 关闭打开的文件
     fo.close()
 
+
+def create_start_import_script(result, path):
+    """
+    生成的文件  set ff =unix ; chmod u+x export.sh
+    传入要导入的库，默认/opt目录
+    :param result:
+    :return:
+    """
+    fo = open("startImport.sh", "w")
+    pre = 'arr=('
+    for index in range(len(result)):
+        pre += '"%s/part_%s.sql" ' % (path, index)
+    pre += ')\n'
+    pre += 'for var in ${arr[@]}\n'
+    pre += 'do\n'
+    pre += '    ./import.sh $var &\n'
+    pre += 'done'
+    fo.write(pre)
+
+    # 关闭打开的文件
+    fo.close()
 
 if __name__ == '__main__':
     database = 'autoHome'
@@ -95,5 +114,6 @@ if __name__ == '__main__':
     result.append([data[0]])
     fun(data[0], data[1:], data[1], [data[1]])
     create_export_script(database, result)
-    target_args = ('root', '123456', database)
-    create_import_script(result, *target_args)
+    target_args = ('root', '123456', database+str(1), '/opt')
+    create_import_script(*target_args)
+    create_start_import_script(result, target_args[3])
