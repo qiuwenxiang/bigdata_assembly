@@ -14,9 +14,17 @@ public class EsTest {
 
     @Test
     public void testInsert(){
+        long time_millis = System.currentTimeMillis();
+        String timestamp = String.valueOf(time_millis/1000);
+        long time = Integer.valueOf(timestamp);
+
         String index="public_sentiment";
         String type="public_sentiment-2018";
-        String json="{\"type\":\"mouth_quality\",\"id\":18782951022,\"sys_date1\":\"2018-04-21\",\"sys_date2\":\"1524296842035\",\"sys_date4\":1524296842}";
+        String json="{\"type\":\"mouth_quality\"," +
+                "\"create_time_none\":"+time+"," +
+                "\"create_time\":"+time+"," +
+                "\"create_time_millis\":"+time_millis+"," +
+                "\"create_time_millis_none\":"+time_millis+"}";
         ESUtil.index(index, type, json,null);
     }
 
