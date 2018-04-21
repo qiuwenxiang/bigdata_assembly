@@ -1,8 +1,11 @@
 package com.kylin.assembly.es;
 
+import com.kylin.assembly.common.GlobalParamValue;
+import com.kylin.assembly.common.constant.EsConstant;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,16 +28,19 @@ public class EsClient {
     {
         if (client == null)
         {
-            Settings settings = Settings.builder().put("cluster.name", "mycluster")
+            Settings settings = Settings.builder().put("cluster.name", GlobalParamValue.get(EsConstant.CLUSTER_NAME))
                     .put("client.transport.ping_timeout","30s")
                     //.put("transport.type", "netty3").put("http.type", "netty3")
                     .build();
             try
             {
-                client = new PreBuiltTransportClient(settings).addTransportAddresses(
-                        new InetSocketTransportAddress(InetAddress.getByName("liebao99.test.com"), 9300),
-                        new InetSocketTransportAddress(InetAddress.getByName("liebao49.test.com"), 9300)
-                );
+                PreBuiltTransportClient preBuiltTransportClient= new PreBuiltTransportClient(settings);
+                String[] ips = GlobalParamValue.get(EsConstant.ESIP).split(",");
+                TransportAddress[] arr=new TransportAddress[ips.length];
+                for (int i=0;i<ips.length;i++){
+                    arr[i]= new InetSocketTransportAddress(InetAddress.getByName(ips[i]), Integer.parseInt(GlobalParamValue.get(EsConstant.ESPORT)));
+                }
+                client = preBuiltTransportClient.addTransportAddresses(arr);
             } catch (UnknownHostException e)
             {
                 e.printStackTrace();

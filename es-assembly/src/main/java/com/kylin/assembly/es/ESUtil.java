@@ -1,6 +1,5 @@
 package com.kylin.assembly.es;
 
-import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexResponse;
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest;
@@ -170,25 +169,16 @@ public class ESUtil {
 		return client.prepareGet(esIndex, esType, _id).setOperationThreaded(false).get();
 	}
 
-	public static boolean index(TransportClient client, String esIndex, String esType, byte[] json, String _id) {
-		System.out.println("es:" + new String(json));
-		try {
-			IndexResponse response = null;
-			// 建立索引
-			if (_id != null){
-				response = client.prepareIndex(esIndex, esType, _id).setSource(json).get();
-			}
-			else{
-				response = client.prepareIndex(esIndex, esType).setSource(json).get();
-			}
-			return response.getVersion() > 0;
-
-//			return response.isCreated();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+	public static boolean index(String esIndex, String esType, String json, String _id) {
+		IndexResponse response = null;
+		// 建立索引
+		if (_id != null){
+			response = EsClient.getEsClient().prepareIndex(esIndex, esType, _id).setSource(json.getBytes()).get();
 		}
-		return false;
+		else{
+			response = EsClient.getEsClient().prepareIndex(esIndex, esType).setSource(json.getBytes()).get();
+		}
+		return response.getVersion() > 0;
 	}
 
 	public static void deleteById(TransportClient client, String esIndex, String esType, String id) {
@@ -261,10 +251,10 @@ public class ESUtil {
 		//设置高亮后缀
 		builder.setHighlighterPostTags("</font>");*/
 		builder.setSearchType(SearchType.DFS_QUERY_THEN_FETCH);
-		if(StringUtils.isNotBlank(key)){
+		/*if(StringUtils.isNotBlank(key)){
 //          builder.setQuery(QueryBuilders.termQuery("title",key));
 			builder.setQuery(QueryBuilders.multiMatchQuery(key, "title","describe"));
-		}
+		}*/
 		builder.setExplain(true);
 		SearchResponse searchResponse = builder.get();
 
