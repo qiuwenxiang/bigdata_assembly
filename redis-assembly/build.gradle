@@ -1,3 +1,7 @@
 dependencies{
+    compile project(":assembly-common")
+
     compile 'org.redisson:redisson:3.6.5'
+    compile 'redis.clients:jedis:2.8.1'
+
 }
