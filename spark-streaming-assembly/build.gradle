@@ -12,6 +12,9 @@ dependencies {
     compile "org.apache.spark:spark-streaming-kafka_2.11:1.6.3"
 
     compile "org.apache.spark:spark-core_2.11:2.2.1"
+
+    compile "org.apache.spark:spark-sql_2.11:2.2.1"
+
 }
 //这里是关键（把java与scala的源代码目录全映射到scala上,
 // 这样gradle compileScala时就能同时编译java与scala的源代码）
