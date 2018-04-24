@@ -92,6 +92,14 @@ public class ZkClientApi
     {
         //删除没有子节点的路劲
         boolean x = zc.delete(path);
+    }
+
+    /**
+     * 删除节点有子节点
+     * @param path
+     */
+    public static void deleteRecursive(String path)
+    {
 
         //删除有子节点的路劲
         boolean y = zc.deleteRecursive(path);

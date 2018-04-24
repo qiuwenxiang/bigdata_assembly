@@ -18,6 +18,7 @@ public class ZkTest {
     private static final String PATH1="/hadoop1";
     private static final String PATH2="/hadoop2";
     private static final String PATH3="/test";
+    private static final String PATH4="/consumers/qwx";
 
 
     @Before
@@ -34,10 +35,12 @@ public class ZkTest {
 
     @Test
     public void testDeleteZNode(){
-         ZkClientApi.delPath(PATH);
-         ZkClientApi.delPath(PATH1);
-         ZkClientApi.delPath(PATH2);
-         ZkClientApi.delPath(PATH3);
+         ZkClientApi.delPath(PATH4);
+    }
+
+    @Test
+    public void testdeleteRecursive(){
+         ZkClientApi.deleteRecursive(PATH4);
     }
 
     @Test
