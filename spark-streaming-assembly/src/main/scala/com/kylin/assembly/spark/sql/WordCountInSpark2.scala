@@ -37,9 +37,9 @@ object WordCountInSpark2 {
       * 数据会被RDD划分成为一系列的Partitions，分配到每个Partition的数据属于一个Task的处理范畴
       */
 
-    val lines = sc.textFile("README.md")   // 读取本地文件
+   // val lines = sc.textFile("README.md")   // 读取本地文件
     //  val lines = sc.textFile("/library/wordcount/input")   // 读取HDFS文件，并切分成不同的Partition
-    //  val lines = sc.textFile("hdfs://master:9000/libarary/wordcount/input")  // 或者明确指明是从HDFS上获取数据
+    val lines = sc.textFile("hdfs://demo228.test.com:8020/README.md")  // 或者明确指明是从HDFS上获取数据
 
     /**
       * 第4步： 对初始的RDD进行Transformation级别的处理，例如 map、filter等高阶函数来进行具体的数据计算
