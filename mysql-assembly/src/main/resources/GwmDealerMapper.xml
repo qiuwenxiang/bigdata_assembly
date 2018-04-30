@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.GwmDealerMapper">
-  <resultMap id="BaseResultMap" type="com.entity.GwmDealer">
+<mapper namespace="com.kylin.assembly.mysql.dao.GwmDealerMapper">
+  <resultMap id="BaseResultMap" type="com.kylin.assembly.mysql.entity.GwmDealer">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="address_area" jdbcType="VARCHAR" property="addressArea" />
@@ -28,7 +28,7 @@
     delete from gwm_dealer
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.entity.GwmDealer">
+  <insert id="insert" parameterType="com.kylin.assembly.mysql.entity.GwmDealer">
     insert into gwm_dealer (id, name, address_area, 
       city, province, area, 
       address, BaiduMapLng, BaiduMapLat, 
@@ -38,7 +38,7 @@
       #{address,jdbcType=VARCHAR}, #{baidumaplng,jdbcType=VARCHAR}, #{baidumaplat,jdbcType=VARCHAR}, 
       #{shopsaletel,jdbcType=VARCHAR}, #{businesshours,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.entity.GwmDealer">
+  <insert id="insertSelective" parameterType="com.kylin.assembly.mysql.entity.GwmDealer">
     insert into gwm_dealer
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,7 +111,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.entity.GwmDealer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kylin.assembly.mysql.entity.GwmDealer">
     update gwm_dealer
     <set>
       <if test="name != null">
@@ -147,7 +147,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.entity.GwmDealer">
+  <update id="updateByPrimaryKey" parameterType="com.kylin.assembly.mysql.entity.GwmDealer">
     update gwm_dealer
     set name = #{name,jdbcType=VARCHAR},
       address_area = #{addressArea,jdbcType=VARCHAR},
