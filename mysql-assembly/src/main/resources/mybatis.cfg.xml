@@ -8,7 +8,7 @@
         <!-- 别名方式1，一个一个的配置 type中放置的是类的全路径，alias中放置的是类别名
         <typeAliase type="com.cy.mybatis.beans.UserBean" alias="UserBean"/><span style="font-family:Arial, Helvetica, sans-serif;">-->
     <!-- 别名方式2，自动扫描，将JAVA类的类名作为类的类别名 -->
-        <!--<package name="com.entity"/>-->
+        <package name="com.kylin.assembly.mysql.entity"/>
     </typeAliases>
 
         <!-- 配置mybatis运行环境 -->
@@ -33,8 +33,7 @@
     <!-- 告知映射文件方式1，一个一个的配置
     <mapper resource="com/cy/mybatis/mapper/UserMapper.xml"/>-->
     <!-- 告知映射文件方式2，自动扫描包内的Mapper接口与配置文件 -->
-       <!-- <package name="mybatis.dealer"/>-->
-       <!-- <package name="com.dao"/>-->
-        <mapper resource="GwmDealerMapper.xml"/>
+        <package name="com.kylin.assembly.mysql.dao"/>
+
     </mappers>
 </configuration>

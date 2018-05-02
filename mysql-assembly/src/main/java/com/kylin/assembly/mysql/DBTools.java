@@ -1,7 +1,5 @@
 package com.kylin.assembly.mysql;
 
-import com.kylin.assembly.mysql.dao.GwmDealerMapper;
-import com.kylin.assembly.mysql.entity.GwmDealer;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -6,7 +6,7 @@
     <!-- 为JAVA Bean起类别名 -->
     <typeAliases>
         <!-- 别名方式1，一个一个的配置 type中放置的是类的全路径，alias中放置的是类别名
-        <typeAliase type="com.cy.mybatis.beans.UserBean" alias="UserBean"/><span style="font-family:Arial, Helvetica, sans-serif;">-->
+        <typeAliase type="com.cy.mybatis.beans.UserBean" alias="UserBean"/>-->
     <!-- 别名方式2，自动扫描，将JAVA类的类名作为类的类别名 -->
         <!--<package name="com.entity"/>-->
     </typeAliases>
@@ -30,16 +30,11 @@
         </environments>
 
     <mappers>
-    <!-- 告知映射文件方式1，一个一个的配置
-    <mapper resource="com/cy/mybatis/mapper/UserMapper.xml"/>-->
+    <!-- 告知映射文件方式1，一个一个的配置 -->
+        <!--<mapper resource="GwmDealerMapper.xml"/>-->
     <!-- 告知映射文件方式2，自动扫描包内的Mapper接口与配置文件 -->
        <!-- <package name="mybatis.dealer"/>-->
-       <!-- <package name="com.dao"/>-->
-        <!--<mapper resource="GwmDealerMapper.xml"/>-->
-      <!--  <package name=""/>-->
-        <mapper resource="GwmDealerMapper.xml"/>
-        <mapper resource="ZotyeDealerMapper.xml"/>
-        <mapper resource="ChanganDealerMapper.xml"/>
-        <mapper resource="ThirdDealerMapper.xml"/>
+        <package name="mybatis.dealer"/>
+
     </mappers>
 </configuration>
