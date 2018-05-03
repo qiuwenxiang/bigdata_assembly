@@ -1,9 +1,10 @@
 package com.kylin.assembly.spark.sql
 
-import com.kylin.assembly.spark.streaming.DBTools
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.{SparkConf, SparkContext}
 
+/**
+  * 利用sparksession 读取本地文件，hdfs文件示例
+  */
 object WordCountInSpark2 {
   def main(args: Array[String]) {
     /**
@@ -41,7 +42,6 @@ object WordCountInSpark2 {
    // val lines = sc.textFile("README.md")   // 读取本地文件
     //  val lines = sc.textFile("/library/wordcount/input")   // 读取HDFS文件，并切分成不同的Partition
     val lines = sc.textFile("hdfs://demo228.test.com:8020/README.md")  // 或者明确指明是从HDFS上获取数据
-    var session = DBTools.getSession
 
     /**
       * 第4步： 对初始的RDD进行Transformation级别的处理，例如 map、filter等高阶函数来进行具体的数据计算

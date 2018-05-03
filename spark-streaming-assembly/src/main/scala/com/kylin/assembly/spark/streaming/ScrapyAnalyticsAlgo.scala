@@ -48,7 +48,8 @@ object ScrapyAnalyticsAlgo {
 
       // Kafka configurations
       var topic  = GlobalParamValue.get(StreamConstant.KAFKA_TOPICS)
-      val topics = Set(topic)
+      val topics = Set(topic,"dealer1")
+      topics.foreach(x => print(x))
       val topicDirs = new ZKGroupTopicDirs(GlobalParamValue.get(StreamConstant.KAFKA_GROUP), topic)
 
 
