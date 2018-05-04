@@ -5,4 +5,5 @@ include "assembly-common","es-assembly","flume-assembly","hive-assembly",
 include 'strom-assembly'
 include 'memcache-assembly'
 include 'mongoDB-assembly'
+include 'hbase-assembly'
 

@@ -25,9 +25,14 @@
     - 单机分布式锁 jedis.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
     - 多节点分布式锁 redisson  https://github.com/redisson/redisson
 - kafka
-  - java-kafka
-  - spark-kafka
-  - strom-kafka
+  - 依赖PageCache 避免在服务端jvm内部缓存数据， 
+  - Sendfile 直接在内核中完成交换，不通过用户的buffer区，顺序读写达到很大吞吐
+  - Partition 消息分区，均衡
+  - Replication：冗余备份  为1为本身
+  - Producer  ack机制
+      - java-kafka
+      - spark-kafka
+      - strom-kafka
 - netty
   - 异步io模型，   阻塞IO→非租塞seletor模型→线程复用→异步io
 - spark
