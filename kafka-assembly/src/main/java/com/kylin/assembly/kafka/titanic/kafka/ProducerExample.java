@@ -16,13 +16,13 @@ import java.util.concurrent.ExecutionException;
 public class ProducerExample
 {
 
-    String topic = "titanic";
+    String topic = "test";
 
     KafkaProducer<String, String> producer;
 
     Properties kafkaProps = new Properties();
 
-    String kafkaServer = "192.9.4.9:9092,192.9.4.10:9092,192.9.4.11:9092";
+    String kafkaServer = "47.98.224.161:9092";
 
     public static void main(String[] args)
     {
