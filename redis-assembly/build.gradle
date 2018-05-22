@@ -3,5 +3,6 @@ dependencies{
 
     compile 'org.redisson:redisson:3.6.5'
     compile 'redis.clients:jedis:2.8.1'
+    compile 'com.moilioncircle:redis-replicator:2.5.0'
 
 }
